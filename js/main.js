@@ -29,8 +29,10 @@ new Vue({
       this.contentInput = '';
       this.editingItem = false;
     },
-    removeTodo: function(todo) {
-
+    removeTodo: function(index) {
+      if (index > -1) {
+        this.todos.splice(index, 1);
+      }
     },
     isEditing: function() {
       this.editingItem = true;
