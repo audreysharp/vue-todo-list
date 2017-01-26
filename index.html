@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Todo List</title>
+    <!-- bulma docs: http://bulma.io/documentation/overview/start/ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div id="app" class="container">
+
+      <div class="column is-half is-offset-one-quarter content">
+
+        <section>
+          <!-- <div class="card" v-for="(todo, index) in todos"> -->
+          <div class="card" v-for="(todo, index) in todos">
+            <div class="card-header">
+              <p class="card-header-title">{{ todo.title }}</p>
+          </div>
+            <div class="card-content">
+              <p>{{ todo.content }}</p>
+            </div>
+            <footer class="card-footer">
+              <a class="card-footer-item">Edit</a>
+              <a class="card-footer-item">Done</a>
+            </footer>
+          </div>
+          <!-- <div class="card">
+            <div class="card-header">
+              <p class="card-header-title">Todo Item Title</p>
+            </div>
+            <div class="card-content">
+              <p>My First Todo Item</p>
+            </div>
+            <footer class="card-footer">
+              <a class="card-footer-item">Edit</a>
+              <a class="card-footer-item">Done</a>
+            </footer>
+          </div> -->
+        </section>
+
+        <section>
+          <label class="label">New Todo</label>
+          <div class="control is-grouped">
+            <div class="control is-expanded">
+              <input type="text" class="input" placeholder="Todo Item Title" v-model="titleInput" @input="isEditing" />
+            </div>
+            <div class="control">
+              <a class="button is-primary" @click="addTodo" >Create</a>
+            </div>
+          </div>
+          <div class="control">
+            <textarea class="textarea" placeholder="Todo item content" v-model="contentInput" @input="isEditing" ></textarea>
+          </div>
+          <div class="control">
+            <!-- this should only be visible if we are editing -->
+            <a class="button" v-show="editingItem" @click="cancel" >Cancel</a>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="js/main.js" charset="utf-8"></script>
+  </body>
+</html>
